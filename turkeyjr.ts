@@ -56,21 +56,6 @@ namespace turkey {
     //% block="free `ICON.turkey-cage`"
     //% help=github:docs/free_turkey
     export function freeTurkey() {
-        /*if (bigTurkey.tileKindAt(TileDirection.Left, assets.tile`cage`)){
-            cageLocation = bigTurkey.tilemapLocation().getNeighboringLocation(CollisionDirection.Left)
-        }
-        if (bigTurkey.tileKindAt(TileDirection.Right, assets.tile`cage`)) {
-            cageLocation = bigTurkey.tilemapLocation().getNeighboringLocation(CollisionDirection.Right)
-        }
-        if (bigTurkey.tileKindAt(TileDirection.Top, assets.tile`cage`)) {
-            cageLocation = bigTurkey.tilemapLocation().getNeighboringLocation(CollisionDirection.Top)
-        }
-        if (bigTurkey.tileKindAt(TileDirection.Bottom, assets.tile`cage`)) {
-            cageLocation = bigTurkey.tilemapLocation().getNeighboringLocation(CollisionDirection.Bottom)
-        }
-        if (bigTurkey.tileKindAt(TileDirection.Center, assets.tile`cage`)) {
-            cageLocation = bigTurkey.tilemapLocation();
-        }*/
         tiles.setTileAt(cageLocation, assets.tile`clear`)
         turkey.freeTurkeys = sprites.create(turkey_imgs.lil, SpriteKind.Rescued)
         tiles.placeOnTile(turkey.freeTurkeys, cageLocation)
