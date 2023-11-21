@@ -5,8 +5,7 @@
     "dependencies": {
         "device": "*",
         "carnival": "github:microsoft/arcade-carnival#v0.0.7",
-        "arcade-block-icons": "github:kiki-lee/arcade-block-icons#v0.0.12",
-        "turkey_imgs": "github:kiki-lee/turkey_imgs#v0.0.1"
+        "arcade-block-icons": "github:kiki-lee/arcade-block-icons#v0.0.12"
     },
     "files": [
         "main.blocks",
