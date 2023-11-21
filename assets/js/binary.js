@@ -1,4 +1,4 @@
-// meta={"simUrl":"https://trg-arcade.userpxt.io/v1.12.46/---simulator","cdnUrl":"https://pxt.azureedge.net","version":"0.0.5","target":"arcade","targetVersion":"1.12.46","repo":"kiki-lee/turkeyjr"}
+// meta={"simUrl":"https://trg-arcade.userpxt.io/v1.12.46/---simulator","cdnUrl":"https://pxt.azureedge.net","version":"0.0.6","target":"arcade","targetVersion":"1.12.46","repo":"kiki-lee/turkeyjr"}
 // total=1342773 new=8.20% cached=86.15% other=5.65%
 (function (ectx) {
 'use strict';
@@ -437,7 +437,7 @@ const pxsim_pxtrt = pxsim.pxtrt;
 const pxsim_numops = pxsim.numops;
 
 
-function _main___P110994(s) {
+function _main___P112251(s) {
 let r0 = s.r0, step = s.pc;
 s.pc = -1;
 
@@ -1030,7 +1030,7 @@ switch (step) {
     s.callLocIdx = 89; s.pc = 60; return s.tmp_0;
   case 60:
     r0 = s.retval;
-    globals.Rescued___110755 = (r0);
+    globals.Rescued___112012 = (r0);
     s.tmp_0 = textsprite_create__P88633_mk(s);
     r0 = pxsim_String_.mkEmpty();
     s.tmp_0.arg0 = r0;
@@ -1039,9 +1039,9 @@ switch (step) {
     s.callLocIdx = 90; s.pc = 61; return s.tmp_0;
   case 61:
     r0 = s.retval;
-    globals.scoreText___110763 = (r0);
+    globals.scoreText___112020 = (r0);
     s.tmp_0 = Sprite_setFlag__P86653_mk(s);
-    s.tmp_0.arg0 = globals.scoreText___110763;
+    s.tmp_0.arg0 = globals.scoreText___112020;
     s.tmp_0.arg1 = 512;
     s.tmp_0.arg2 = true;
     s.callLocIdx = 91; s.pc = 62; return s.tmp_0;
@@ -1051,13 +1051,13 @@ switch (step) {
     return leave(s, r0)
   default: oops()
 } } }
-_main___P110994.info = {"start":0,"length":0,"line":0,"column":0,"endLine":0,"endColumn":0,"fileName":"pxt_modules/arcade-text/main.ts","functionName":"<main>","argumentNames":[]}
-_main___P110994.continuations = [ 43,44,45,46 ]
+_main___P112251.info = {"start":0,"length":0,"line":0,"column":0,"endLine":0,"endColumn":0,"fileName":"pxt_modules/arcade-text/main.ts","functionName":"<main>","argumentNames":[]}
+_main___P112251.continuations = [ 43,44,45,46 ]
 
-function _main___P110994_mk(s) {
+function _main___P112251_mk(s) {
     checkStack(s.depth);
     return {
-        parent: s, fn: _main___P110994, depth: s.depth + 1,
+        parent: s, fn: _main___P112251, depth: s.depth + 1,
         pc: 0, retval: undefined, r0: undefined, overwrittenPC: false, lambdaArgs: null,
   tmp_0: undefined,
   tmp_1: undefined,
@@ -44722,7 +44722,7 @@ const sprites_BaseSpriteSayRenderer__C86493_VT = mkVTable({
   },
 });
 
-const breakpoints = setupDebugger(1, ["transparency16___88793","tile1___88794","tile2___88795","tile3___88796","Rescued___110755","scoreText___110763"])
+const breakpoints = setupDebugger(1, ["transparency16___88793","tile1___88794","tile2___88795","tile3___88796","Rescued___112012","scoreText___112020"])
 
-return _main___P110994
+return _main___P112251
 })
