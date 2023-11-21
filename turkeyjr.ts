@@ -155,10 +155,11 @@ namespace turkey {
     //% color=#093330
     //% help=docs/on-overlap-cage
     export function turkeyOverlapCage(handler: () => void) {
+        if (!handler) return;
 
         const overlapHandler = (sprite: Sprite, location: tiles.Location) => {
             cageLocation = location;
-            handler();
+            handler
         }
 
         const tileOverlapHandlers = game.currentScene().tileOverlapHandlers;
