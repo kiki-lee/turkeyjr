@@ -122,7 +122,6 @@ namespace turkey {
     export function turkeyWin() {
         let secs = Math.floor(carnival.getTimerValue() / 1000)
         carnival.customGameOverExpanded("15 cages in " + secs + " seconds!", effects.confetti, music.powerUp, carnival.ScoreTypes.LTime)
-
     }
 
 
@@ -153,7 +152,6 @@ namespace turkey {
     //% weight=99 blockGap=8
     //% blockId=on-overlap-cage
     //% block="`ICON.turkey-right` `ICON.point-right-white` `ICON.turkey-cage`"
-    //% draggableParameters = "reporter"
     //% color=#093330
     //% help=docs/on-overlap-cage
     export function turkeyOverlapCage(handler: () => void) {
@@ -167,7 +165,7 @@ namespace turkey {
         tileOverlapHandlers.push(
             new scene.TileOverlapHandler(
                 SpriteKind.Player,
-                assets.tile`cage`,
+                turkey_imgs.cage,
                 overlapHandler
             )
         );
