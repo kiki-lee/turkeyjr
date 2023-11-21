@@ -19,15 +19,12 @@ namespace turkey {
     scoreText.setFlag(SpriteFlag.RelativeToCamera, true)
 
 
-
-
     /**
      * Run code when the play button is pressed
      * (Like on start, but jr)
      */
     //% color=#093330
     //% help=game/on-start-simple 
-    //% weight=99 
     //% afterOnStart=false
     //% blockId=on_start_simple 
     //% block="on `ICON.play`"
@@ -36,46 +33,6 @@ namespace turkey {
         a();
     }
 
-
-
-
-    /**
-    * Make the turkey appear to jump
-    */
-    //% blockId=turkey_jump
-    //% block="`ICON.turkey-right` jump"
-    //% help=github:docs/turkey_jump
-    export function turkeyJump() {
-        bigTurkey.vy = -300
-    }
-
-    /**
-    * Make the turkey appear to jump
-    */
-    //% blockId=free_turkey
-    //% block="free `ICON.turkey-cage`"
-    //% help=github:docs/free_turkey
-    export function freeTurkey() {
-        /*if (bigTurkey.tileKindAt(TileDirection.Left, assets.tile`cage`)){
-            cageLocation = bigTurkey.tilemapLocation().getNeighboringLocation(CollisionDirection.Left)
-        }
-        if (bigTurkey.tileKindAt(TileDirection.Right, assets.tile`cage`)) {
-            cageLocation = bigTurkey.tilemapLocation().getNeighboringLocation(CollisionDirection.Right)
-        }
-        if (bigTurkey.tileKindAt(TileDirection.Top, assets.tile`cage`)) {
-            cageLocation = bigTurkey.tilemapLocation().getNeighboringLocation(CollisionDirection.Top)
-        }
-        if (bigTurkey.tileKindAt(TileDirection.Bottom, assets.tile`cage`)) {
-            cageLocation = bigTurkey.tilemapLocation().getNeighboringLocation(CollisionDirection.Bottom)
-        }
-        if (bigTurkey.tileKindAt(TileDirection.Center, assets.tile`cage`)) {
-            cageLocation = bigTurkey.tilemapLocation();
-        }*/
-        tiles.setTileAt(cageLocation, assets.tile`clear`)
-        turkey.freeTurkeys = sprites.create(turkey_imgs.lil, SpriteKind.Rescued)
-        tiles.placeOnTile(turkey.freeTurkeys, cageLocation)
-        turkey.freeTurkeys.follow(turkey.bigTurkey)
-    }
 
     /**
     * Add the turkey and mechanics to the game
@@ -90,6 +47,46 @@ namespace turkey {
         scene.cameraFollowSprite(bigTurkey)
         tiles.placeOnRandomTile(bigTurkey, assets.tile`start`)
     }
+
+
+    /**
+     * Register code run when a controller event occurs
+    * @param event
+    * @param handler
+    */
+    //% weight=99 blockGap=8
+    //% blockId=ctrlonA block="on `ICON.a-button-white-invert`"
+    //% color=#093330
+    //% help=docs/on-a
+    export function onA(handler: () => void) {
+        controller.A.onEvent(ControllerButtonEvent.Pressed, handler)
+    }
+
+
+    /**
+    * Make the turkey appear to jump
+    */
+    //% blockId=turkey_jump
+    //% block="`ICON.turkey-right` jump"
+    //% help=github:docs/turkey_jump
+    export function turkeyJump() {
+        bigTurkey.vy = -300
+    }
+
+
+    /**
+    * Replace the cage with turkeyette
+    */
+    //% blockId=free_turkey
+    //% block="free `ICON.turkey-cage`"
+    //% help=github:docs/free_turkey
+    export function freeTurkey() {
+        tiles.setTileAt(cageLocation, assets.tile`clear`)
+        turkey.freeTurkeys = sprites.create(turkey_imgs.lil, SpriteKind.Rescued)
+        tiles.placeOnTile(turkey.freeTurkeys, cageLocation)
+        turkey.freeTurkeys.follow(turkey.bigTurkey)
+    }
+
 
     /**
     * Start the game timer
@@ -123,34 +120,21 @@ namespace turkey {
     //% block="game over `ICON.smile-beam-white`"
     //% help=github:docs/set_turkey_win
     export function turkeyWin() {
-        //carnival.onGameOverExpanded(carnival.WinTypes.Timed)
-
         let secs = Math.floor(carnival.getTimerValue() / 1000)
         carnival.customGameOverExpanded("15 cages in " + secs + " seconds!", effects.confetti, music.powerUp, carnival.ScoreTypes.LTime)
 
     }
 
-    /**
-     * Register code run when a controller event occurs
-    * @param event
-    * @param handler
-    */
-    //% weight=99 blockGap=8
-    //% blockId=ctrlonA block="on `ICON.a-button-white-invert`"
-    //% color=#093330
-    //% help=docs/on-a
-    export function onA(handler: () => void) {
-        controller.A.onEvent(ControllerButtonEvent.Pressed, handler)
-    }
+
 
     /**
- * Runs code once each time [||] reaches a given value. This will also
- * run if the score "passes" the given value in either direction without ever
- * having the exact value (e.g. if score is changed by more than 1)
- *
- * @param score the score to fire the event on
- * @param handler code to run when the score reaches the given value
- */
+     * Runs code once each time [||] reaches a given value. This will also
+     * run if the score "passes" the given value in either direction without ever
+     * having the exact value (e.g. if score is changed by more than 1)
+     *
+     * @param score the score to fire the event on
+     * @param handler code to run when the score reaches the given value
+     */
     //% blockId=gameonscore3
     //% block="on `ICON.turkey-cage` $score"
     //% score.defl=15
@@ -168,7 +152,7 @@ namespace turkey {
     */
     //% weight=99 blockGap=8
     //% blockId=on-overlap-cage
-    //% block="`ICON.turkey-right` `ICON.point-right-white` `ICON.turkey-cage` || $location"
+    //% block="`ICON.turkey-right` `ICON.point-right-white` `ICON.turkey-cage`"
     //% draggableParameters = "reporter"
     //% color=#093330
     //% help=docs/on-overlap-cage
